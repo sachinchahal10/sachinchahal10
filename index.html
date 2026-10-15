@@ -355,7 +355,7 @@
       <div class="hero-meta">
         <span class="chip"><b>MS</b> Business Analytics · Data Science</span>
         <span class="chip"><b>UConn</b> School of Business</span>
-        <span class="chip"><b>PepsiCo</b> AI project</span>
+        <span class="chip"><b>PepsiCo</b> data &amp; AI capstone</span>
         <span class="chip">Open to relocate</span>
       </div>
       <div class="cta-row">
@@ -428,7 +428,7 @@
   <div class="wrap">
     <div class="lbl">Companies I've worked with</div>
     <div class="logo-row">
-      <a class="logo star" href="#pepsico"><div class="mono-badge">P</div><div><div class="nm">PepsiCo</div><div class="rl">AI data extraction</div></div></a>
+      <a class="logo star" href="#pepsico"><div class="mono-badge">P</div><div><div class="nm">PepsiCo</div><div class="rl">rPET bottle data platform</div></div></a>
       <a class="logo" href="#experience"><div class="mono-badge">GP</div><div><div class="nm">Generative Products</div><div class="rl">Data &amp; AI COE</div></div></a>
       <a class="logo" href="#experience"><div class="mono-badge">C</div><div><div class="nm">Capgemini</div><div class="rl">Data integration</div></div></a>
       <a class="logo" href="#projects"><div class="mono-badge">T</div><div><div class="nm">Travelers</div><div class="rl">Competition winner</div></div></a>
@@ -455,7 +455,6 @@
 </section>
 
 <!-- PEPSICO FEATURE -->
-<!-- TODO (Sachin): replace with real PepsiCo scope, data sources, tools and results -->
 <section id="pepsico">
   <div class="wrap reveal">
     <div class="sec-head"><span class="sec-idx">02</span><h2>Enterprise Project</h2></div>
@@ -463,44 +462,55 @@
       <div class="f-head">
         <div class="f-badge">P</div>
         <div>
-          <div class="f-kicker">Fortune 500 · Global food &amp; beverage</div>
+          <div class="f-kicker">PepsiCo × UConn Capstone · 2026</div>
           <div class="f-co">PepsiCo</div>
         </div>
       </div>
-      <h3 class="f-title">AI-Powered Data Extraction <span class="grad">&amp; Analytics Pipeline</span></h3>
-      <p class="f-sub">Built an AI pipeline for PepsiCo that extracts key information from large volumes of unstructured business data, turns it into clean, structured datasets, and feeds it into analytics and models that help teams make faster decisions at enterprise scale.</p>
+      <h3 class="f-title">rPET Bottle Qualification <span class="grad">Data Platform</span></h3>
+      <p class="f-sub">PepsiCo tests recycled PET (rPET) resin before it goes into bottles, but five years of test results were scattered across 5,700+ disconnected files - Excel lab workbooks, PDFs, scans, machine-screen photos and emails - with no shared key between them. I turned that mess into one linked MySQL database, built a Python + OCR + local LLM pipeline to extract data from the unstructured files, and ran the first statistical analysis of what actually drives bottle performance.</p>
 
       <div class="f-tiles">
-        <div class="f-tile"><b>Enterprise</b><span>scale data across business teams</span></div>
-        <div class="f-tile"><b>AI Extraction</b><span>LLMs pull structured fields from raw data</span></div>
-        <div class="f-tile"><b>End to end</b><span>from raw inputs to insights</span></div>
-        <div class="f-tile"><b>Validated</b><span>quality checks before data is used</span></div>
+        <div class="f-tile"><b>5,709 files</b><span>~7 GB across 5 years, 19 file types</span></div>
+        <div class="f-tile"><b>242,573 rows</b><span>in 25 linked tables, zero values lost</span></div>
+        <div class="f-tile"><b>817 trials</b><span>bottle trials linked to lab results</span></div>
+        <div class="f-tile"><b>R² = 0.77</b><span>model explaining bottle burst strength</span></div>
       </div>
 
       <div class="flow" aria-label="PepsiCo pipeline">
-        <div class="step"><div class="n">01 · COLLECT</div><div class="t">Raw data</div><div class="d">Documents, files &amp; business sources</div></div>
-        <div class="step ai"><div class="n">02 · EXTRACT</div><div class="t">AI extraction</div><div class="d">LLMs pull key fields &amp; entities</div></div>
-        <div class="step"><div class="n">03 · STRUCTURE</div><div class="t">Clean &amp; validate</div><div class="d">Standardized, quality-checked tables</div></div>
-        <div class="step ai"><div class="n">04 · MODEL</div><div class="t">Analyze &amp; predict</div><div class="d">ML models &amp; trend analysis</div></div>
-        <div class="step human"><div class="n">05 · DELIVER</div><div class="t">Insights</div><div class="d">Dashboards &amp; recommendations</div></div>
+        <div class="step"><div class="n">01 · INGEST</div><div class="t">5,709 raw files</div><div class="d">Lab workbooks, PDFs, scans, photos, 881 emails</div></div>
+        <div class="step"><div class="n">02 · MODEL</div><div class="t">25-table schema</div><div class="d">One global key, enforced foreign keys</div></div>
+        <div class="step ai"><div class="n">03 · EXTRACT</div><div class="t">OCR + local LLM</div><div class="d">Forms, scanned PDFs, recipes → JSON</div></div>
+        <div class="step human"><div class="n">04 · VALIDATE</div><div class="t">Every row checked</div><div class="d">Row counts &amp; value-by-value checks</div></div>
+        <div class="step ai"><div class="n">05 · ANALYZE</div><div class="t">Find the drivers</div><div class="d">OLS, logistic regression, Kruskal-Wallis</div></div>
       </div>
 
       <div class="case-grid">
         <div class="case-block">
-          <h4>The challenge</h4>
-          <p>Valuable business information was locked in unstructured, inconsistent data, so pulling it out by hand was slow and hard to scale across a company of PepsiCo's size.</p>
+          <h4>The data</h4>
+          <ul>
+            <li><b>Three testing sources</b> for the same bottles - plant QC (992 files, 21,493 mold-level rows), external lab workbooks (466 files: dimensions, wall thickness, drop &amp; thermal tests) and preform data packs (96 files, 1,157 columns each).</li>
+            <li><b>~3,600 unstructured files</b> - line conversion forms, resin lab PDFs, supplier certificates, blow-molder recipe exports, tote-tag and machine-screen photos, and 881 emails.</li>
+          </ul>
+          <h4 style="margin-top:20px">What the analysis found</h4>
+          <ul>
+            <li><b>Thermal stability is the test that fails</b> - about a third of lab files (124 of 365) cross the limit, while burst and top load almost never fail. That made it the modeling target.</li>
+            <li><b>Burst strength is driven by preform weight first</b> (partial η² 0.59), then plant, then resin - bottle design and color explained nothing.</li>
+            <li><b>Thin walls drive thermal failures</b> - each +0.001 in. of average wall thickness cut the odds of failing by 37% (p = 0.005).</li>
+          </ul>
         </div>
         <div class="case-block">
-          <h4>What I delivered</h4>
+          <h4>What I built</h4>
           <ul>
-            <li><b>AI extraction layer</b> - prompt-engineered LLM workflows that pull structured fields out of unstructured inputs.</li>
-            <li><b>Data pipeline</b> - cleaning, validation and standardization so the output can be trusted downstream.</li>
-            <li><b>Analytics &amp; insights</b> - models and dashboards that turn the extracted data into clear recommendations for stakeholders.</li>
+            <li><b>25-table MySQL database</b> - master file index → summaries → test tables, all linked by one global key. Validated the sponsor's ERD against the real files first and caught 6 mismatches before building.</li>
+            <li><b>Wide-to-long reshaping</b> - a 1,157-column file broke MySQL's 1,017-column limit, so I restructured it into header + long result tables (18,944 and 24,509 rows), verified value by value.</li>
+            <li><b>Auto-generated schema</b> - CREATE TABLE scripts generated from data profiling instead of hand-typing 400+ column definitions.</li>
+            <li><b>AI extraction pipeline</b> - a 5-layer plan (regex/pandas → Excel parsers → PDF parsers with OCR → recipe parsers → local vision LLM for photos). It outputs one source-tagged JSON per file with a confidence score, and pulled 10/10 fields from Word forms and 9-10 from scanned PDFs in testing.</li>
+            <li><b>Built-in data quality</b> - foreign keys caught a wrong-file import that would have silently mixed two datasets, and summary-vs-detail checks matched 343/343, 586/586 and 848/857 files.</li>
           </ul>
         </div>
       </div>
 
-      <div class="case-stack stack" style="display:flex;flex-wrap:wrap;gap:7px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)"><span class="chip">Python</span><span class="chip">LLMs</span><span class="chip">Prompt Engineering</span><span class="chip">Data Extraction</span><span class="chip">SQL</span><span class="chip">Machine Learning</span><span class="chip">Power BI</span></div>
+      <div class="case-stack stack" style="display:flex;flex-wrap:wrap;gap:7px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)"><span class="chip">Python</span><span class="chip">pandas</span><span class="chip">pdfplumber</span><span class="chip">python-docx</span><span class="chip">Tesseract OCR</span><span class="chip">Ollama (local LLM)</span><span class="chip">MySQL</span><span class="chip">DBeaver</span><span class="chip">OLS / Logistic Regression</span><span class="chip">Kruskal-Wallis</span><span class="chip">Spearman</span></div>
     </div></div>
   </div>
 </section>
@@ -697,7 +707,7 @@
           <div class="school">University of Connecticut · School of Business - Hartford, CT</div>
           <div class="conc">Concentration: Data Science</div>
         </div>
-        <div class="date">Jan 2025 - Dec 2026</div>
+        <div class="date">Jan 2025 — Dec 2026</div>
       </div>
 
       <div class="edu">
@@ -706,7 +716,7 @@
           <div class="school"><a href="https://mdu.ac.in/" target="_blank" rel="noopener">Maharshi Dayanand University</a> · Rohtak, India</div>
           <div class="conc">Foundation in programming, data structures, databases &amp; algorithms</div>
         </div>
-        <div class="date">2016 - 2020</div>
+        <div class="date">2016 — 2020</div>
       </div>
 
     </div>
