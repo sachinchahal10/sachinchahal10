@@ -20,6 +20,7 @@
     --flow-a:#47C9E8;   /* input signal  */
     --flow-b:#A98CFF;   /* transformed   */
     --amber:#FFB454;    /* highlight     */
+    --green:#3ED598;
     --maxw:1120px;
     --display:'Space Grotesk',sans-serif;
     --body:'IBM Plex Sans',sans-serif;
@@ -72,11 +73,11 @@
   .brand .dot{width:8px;height:8px;border-radius:50%;background:var(--flow-a);
     box-shadow:0 0 0 0 rgba(71,201,232,.6);animation:pulse 2.4s infinite}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(71,201,232,.5)}70%{box-shadow:0 0 0 8px rgba(71,201,232,0)}100%{box-shadow:0 0 0 0 rgba(71,201,232,0)}}
-  .nav-links{display:flex;gap:28px;font-family:var(--mono);font-size:.78rem;color:var(--muted)}
+  .nav-links{display:flex;gap:26px;font-family:var(--mono);font-size:.78rem;color:var(--muted)}
   .nav-links a{transition:color .2s}
   .nav-links a:hover{color:var(--text)}
   .nav-links a::before{content:attr(data-n);color:var(--flow-b);margin-right:.5em;opacity:.7}
-  @media(max-width:720px){.nav-links{display:none}}
+  @media(max-width:820px){.nav-links{display:none}}
 
   /* ---------- HERO ---------- */
   .hero{padding:60px 0 40px;position:relative}
@@ -88,7 +89,7 @@
   .hero-id .who .nm{font-family:var(--display);font-weight:600;font-size:1.18rem;line-height:1.1}
   .hero-id .who .status{font-family:var(--mono);font-size:.72rem;color:var(--muted);
     display:inline-flex;align-items:center;gap:.5em;margin-top:5px}
-  .hero-id .who .status .live{width:7px;height:7px;border-radius:50%;background:#3ED598;
+  .hero-id .who .status .live{width:7px;height:7px;border-radius:50%;background:var(--green);
     box-shadow:0 0 0 0 rgba(62,213,152,.6);animation:pulse 2.4s infinite}
   .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
   @media(max-width:900px){.hero-grid{grid-template-columns:1fr;gap:32px}}
@@ -102,7 +103,7 @@
     background:linear-gradient(100deg,var(--flow-a),var(--flow-b));
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
-  .hero-sub{color:var(--muted);font-size:1.06rem;max-width:34ch;margin-bottom:28px}
+  .hero-sub{color:var(--muted);font-size:1.06rem;max-width:38ch;margin-bottom:28px}
   .hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px}
   .chip{
     font-family:var(--mono);font-size:.72rem;color:var(--muted);
@@ -143,6 +144,7 @@
   .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:38px;flex-wrap:wrap}
   .sec-head h2{font-family:var(--display);font-weight:600;font-size:clamp(1.5rem,3vw,2.1rem);letter-spacing:-.01em}
   .sec-idx{font-family:var(--mono);font-size:.8rem;color:var(--flow-b);opacity:.85}
+  .sec-note{font-family:var(--mono);font-size:.74rem;color:var(--muted-2)}
 
   /* ---------- SUMMARY ---------- */
   .summary p{font-size:1.18rem;max-width:60ch;color:#C9D2E4}
@@ -153,6 +155,78 @@
   .stat b{font-family:var(--display);font-size:1.9rem;display:block;line-height:1;
     background:linear-gradient(100deg,var(--flow-a),var(--flow-b));-webkit-background-clip:text;background-clip:text;color:transparent}
   .stat span{font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted-2)}
+
+  /* ---------- CASE STUDY ---------- */
+  .case{
+    background:linear-gradient(160deg,var(--surface),var(--surface-2));
+    border:1px solid var(--line);border-radius:18px;padding:34px;position:relative;overflow:hidden;
+  }
+  .case::before{content:"";position:absolute;top:-120px;right:-120px;width:320px;height:320px;border-radius:50%;
+    background:radial-gradient(circle,rgba(169,140,255,.14),transparent 70%);pointer-events:none}
+  .case-tag{font-family:var(--mono);font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--flow-b);
+    display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .case-tag .lock{color:var(--muted-2);border:1px solid var(--line);border-radius:100px;padding:3px 10px;letter-spacing:.08em}
+  .case h3{font-family:var(--display);font-weight:600;font-size:clamp(1.4rem,3vw,1.9rem);line-height:1.15;margin:14px 0 10px;letter-spacing:-.01em}
+  .case .case-sub{color:var(--muted);max-width:68ch;font-size:1rem}
+
+  .flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin:30px 0}
+  .flow .step{flex:1 1 120px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:12px 13px;position:relative}
+  .flow .step .n{font-family:var(--mono);font-size:.62rem;color:var(--muted-2);letter-spacing:.1em}
+  .flow .step .t{font-family:var(--display);font-weight:600;font-size:.92rem;margin-top:3px}
+  .flow .step .d{font-size:.78rem;color:var(--muted);margin-top:3px;line-height:1.4}
+  .flow .step.ai{border-color:rgba(169,140,255,.5)}
+  .flow .step.ai .n{color:var(--flow-b)}
+  .flow .step.human{border-color:rgba(255,180,84,.4)}
+  .flow .step.human .n{color:var(--amber)}
+
+  .case-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+  @media(max-width:820px){.case-grid{grid-template-columns:1fr}}
+  .case-block h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--flow-a);margin-bottom:12px}
+  .case-block p{color:var(--muted);font-size:.95rem;margin-bottom:12px}
+  .case-block ul{list-style:none;display:grid;gap:10px}
+  .case-block li{position:relative;padding-left:20px;color:var(--muted);font-size:.94rem}
+  .case-block li::before{content:"→";position:absolute;left:0;color:var(--flow-b);font-family:var(--mono);font-size:.85rem}
+  .case-block li b{color:var(--text);font-weight:600}
+  .case .stack{display:flex;flex-wrap:wrap;gap:7px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)}
+  .case .stack span{font-family:var(--mono);font-size:.68rem;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:3px 8px;background:var(--bg)}
+
+  /* ---------- COMPANY STRIP ---------- */
+  .logos{padding:10px 0 30px}
+  .logos .lbl{font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted-2);text-align:center;margin-bottom:18px}
+  .logo-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  @media(max-width:820px){.logo-row{grid-template-columns:repeat(2,1fr)}}
+  .logo{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px;transition:.2s}
+  .logo:hover{border-color:var(--flow-a);transform:translateY(-2px)}
+  .logo.star{border-color:rgba(71,201,232,.55);background:linear-gradient(130deg,rgba(71,201,232,.12),rgba(169,140,255,.08))}
+  .mono-badge{width:42px;height:42px;border-radius:10px;flex-shrink:0;display:grid;place-items:center;
+    font-family:var(--display);font-weight:700;font-size:1rem;color:#0A0E16;background:linear-gradient(130deg,var(--flow-a),var(--flow-b))}
+  .logo .nm{font-family:var(--display);font-weight:600;font-size:1rem;line-height:1.15}
+  .logo .rl{font-family:var(--mono);font-size:.66rem;color:var(--muted-2);margin-top:2px}
+
+  /* ---------- PEPSICO FEATURE ---------- */
+  .feature{
+    border-radius:22px;padding:2px;
+    background:linear-gradient(130deg,var(--flow-a),var(--flow-b),var(--amber));
+    box-shadow:0 40px 90px -50px rgba(71,201,232,.6);
+  }
+  .feature-in{background:linear-gradient(170deg,#0F1626,#0B101B);border-radius:20px;padding:44px;position:relative;overflow:hidden}
+  @media(max-width:700px){.feature-in{padding:26px}}
+  .feature-in::before{content:"";position:absolute;top:-160px;left:-120px;width:420px;height:420px;border-radius:50%;
+    background:radial-gradient(circle,rgba(71,201,232,.16),transparent 70%);pointer-events:none}
+  .f-head{display:flex;align-items:center;gap:22px;flex-wrap:wrap;position:relative}
+  .f-badge{width:78px;height:78px;border-radius:18px;display:grid;place-items:center;
+    font-family:var(--display);font-weight:700;font-size:1.6rem;color:#0A0E16;
+    background:linear-gradient(130deg,var(--flow-a),var(--flow-b))}
+  .f-co{font-family:var(--display);font-weight:700;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1;letter-spacing:-.02em}
+  .f-kicker{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:6px}
+  .f-title{font-family:var(--display);font-weight:600;font-size:clamp(1.3rem,3vw,1.9rem);margin:26px 0 10px;line-height:1.2;position:relative}
+  .f-title .grad{background:linear-gradient(100deg,var(--flow-a),var(--flow-b));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .f-sub{color:#C9D2E4;font-size:1.05rem;max-width:70ch;position:relative}
+  .f-tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:32px 0}
+  @media(max-width:820px){.f-tiles{grid-template-columns:repeat(2,1fr)}}
+  .f-tile{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px}
+  .f-tile b{font-family:var(--display);font-size:1.15rem;display:block;background:linear-gradient(100deg,var(--flow-a),var(--flow-b));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .f-tile span{font-size:.82rem;color:var(--muted)}
 
   /* ---------- EXPERIENCE ---------- */
   .xp{position:relative;padding-left:30px}
@@ -189,10 +263,14 @@
   .card h3{font-family:var(--display);font-weight:600;font-size:1.22rem;margin-bottom:6px}
   .card .sub{font-family:var(--mono);font-size:.74rem;color:var(--muted-2);margin-bottom:14px}
   .card p{color:var(--muted);font-size:.94rem;margin-bottom:16px}
+  .card ul{list-style:none;display:grid;gap:8px;margin-bottom:16px}
+  .card li{position:relative;padding-left:18px;color:var(--muted);font-size:.9rem}
+  .card li::before{content:"→";position:absolute;left:0;color:var(--flow-b);font-family:var(--mono);font-size:.8rem}
   .card .stack{display:flex;flex-wrap:wrap;gap:7px}
   .card .stack span{font-family:var(--mono);font-size:.68rem;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:3px 8px}
   .card.win{border-color:rgba(255,180,84,.35)}
   .card.win .tag{color:var(--amber)}
+  .card.industry .tag{color:var(--flow-a)}
 
   /* ---------- SKILLS ---------- */
   .skill-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
@@ -200,6 +278,9 @@
   .skill-block{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:22px}
   .skill-block h4{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--flow-a);margin-bottom:14px;display:flex;align-items:center;gap:.6em}
   .skill-block h4::before{content:"";width:6px;height:6px;background:var(--flow-a);border-radius:1px}
+  .skill-block.ai{border-color:rgba(169,140,255,.35)}
+  .skill-block.ai h4{color:var(--flow-b)}
+  .skill-block.ai h4::before{background:var(--flow-b)}
   .pills{display:flex;flex-wrap:wrap;gap:8px}
   .pills span{font-size:.82rem;color:var(--text);background:var(--surface-2);border:1px solid var(--line);border-radius:6px;padding:5px 11px;transition:.2s}
   .pills span:hover{border-color:var(--flow-b);color:#fff}
@@ -248,10 +329,11 @@
     <div class="brand"><span class="dot"></span>SACHIN&nbsp;CHAHAL</div>
     <div class="nav-links">
       <a href="#summary" data-n="01">summary</a>
-      <a href="#experience" data-n="02">experience</a>
-      <a href="#projects" data-n="03">projects</a>
-      <a href="#skills" data-n="04">stack</a>
-      <a href="#contact" data-n="05">contact</a>
+      <a href="#pepsico" data-n="02">pepsico</a>
+      <a href="#case-study" data-n="03">case study</a>
+      <a href="#experience" data-n="04">experience</a>
+      <a href="#projects" data-n="05">projects</a>
+      <a href="#contact" data-n="06">contact</a>
     </div>
   </div>
 </nav>
@@ -264,19 +346,22 @@
         <div class="avatar"><img src="profile.jpg" alt="Sachin Chahal" width="84" height="84"></div>
         <div class="who">
           <div class="nm">Sachin Chahal</div>
-          <div class="status"><span class="live"></span>Open to AI/ML & Data roles</div>
+          <div class="status"><span class="live"></span>Open to AI/ML & Data roles · Open to relocate</div>
         </div>
       </div>
-      <span class="eyebrow">Data &amp; AI Engineer · Hartford, CT</span>
-      <h1 class="headline">I move data through systems -and <span class="grad">turn it into models that decide.</span></h1>
-      <p class="hero-sub">Six years building reliable data pipelines and enterprise integrations, now shipping machine learning and generative AI.</p>
+      <span class="eyebrow">Data &amp; AI Engineer · Hartford, CT · Open to relocate</span>
+      <h1 class="headline">I move data through systems - and <span class="grad">turn it into AI that decides.</span></h1>
+      <p class="hero-sub">Six years building reliable data pipelines and enterprise integrations, now shipping AI agents, LLM applications, and machine learning models.</p>
       <div class="hero-meta">
         <span class="chip"><b>MS</b> Business Analytics · Data Science</span>
         <span class="chip"><b>UConn</b> School of Business</span>
+        <span class="chip"><b>PepsiCo</b> AI project</span>
         <span class="chip">Open to relocate</span>
       </div>
       <div class="cta-row">
-        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn primary" href="#pepsico">See PepsiCo project</a>
+        <a class="btn" href="#case-study">Case study</a>
+        <a class="btn" href="#projects">All projects</a>
         <a class="btn" href="#contact">Get in touch</a>
       </div>
     </div>
@@ -291,14 +376,12 @@
           </linearGradient>
         </defs>
 
-        <!-- connecting paths -->
         <path id="p1" class="flow-path" d="M70 46 L70 92"/>
         <path id="p2" class="flow-path" d="M70 130 L70 176"/>
         <path id="p3" class="flow-path" d="M70 214 L70 260 L370 260 L370 214"/>
         <path id="p4" class="flow-path" d="M370 176 L370 130"/>
         <path id="p5" class="flow-path" d="M370 92 L370 46"/>
 
-        <!-- nodes: left column bottom-up = trajectory, wraps to right col target -->
         <g>
           <rect class="node-box" x="18" y="16" width="104" height="30" rx="6"/>
           <text class="node-label" x="30" y="30">Data Analyst</text>
@@ -317,16 +400,20 @@
         <g>
           <rect class="node-box" x="318" y="184" width="104" height="30" rx="6"/>
           <text class="node-label" x="330" y="198">Data &amp; AI Intern</text>
-          <text class="node-year" x="330" y="209">2026 · model</text>
+          <text class="node-year" x="330" y="209">2026 · agents</text>
+        </g>
+        <g>
+          <rect class="node-box" x="318" y="100" width="104" height="30" rx="6"/>
+          <text class="node-label" x="330" y="114">AI Systems</text>
+          <text class="node-year" x="330" y="125">2026 · build</text>
         </g>
         <g>
           <rect class="node-box active" x="318" y="16" width="104" height="30" rx="6" stroke="url(#flowg)"/>
-          <text class="node-label" x="330" y="30" fill="#EBEEF6">ML Engineer</text>
+          <text class="node-label" x="330" y="30" fill="#EBEEF6">ML / AI Engineer</text>
           <text class="node-year" x="330" y="41" fill="#A98CFF">target · deploy</text>
         </g>
 
-        <!-- animated packets -->
-        <circle class="packet" r="3.2"><animateMotion dur="5s" repeatCount="indefinite" keyPoints="0;1" keyTimes="0;1"><mpath href="#p1"/></animateMotion></circle>
+        <circle class="packet" r="3.2"><animateMotion dur="5s" repeatCount="indefinite"><mpath href="#p1"/></animateMotion></circle>
         <circle class="packet" r="3.2"><animateMotion dur="5s" begin="1s" repeatCount="indefinite"><mpath href="#p2"/></animateMotion></circle>
         <circle class="packet" r="3.2" fill="#A98CFF"><animateMotion dur="6.5s" begin="2s" repeatCount="indefinite"><mpath href="#p3"/></animateMotion></circle>
         <circle class="packet" r="3.2" fill="#A98CFF"><animateMotion dur="5s" begin="3.4s" repeatCount="indefinite"><mpath href="#p4"/></animateMotion></circle>
@@ -336,17 +423,30 @@
   </div>
 </header>
 
+<!-- COMPANIES -->
+<div class="logos">
+  <div class="wrap">
+    <div class="lbl">Companies I've worked with</div>
+    <div class="logo-row">
+      <a class="logo star" href="#pepsico"><div class="mono-badge">P</div><div><div class="nm">PepsiCo</div><div class="rl">AI data extraction</div></div></a>
+      <a class="logo" href="#experience"><div class="mono-badge">GP</div><div><div class="nm">Generative Products</div><div class="rl">Data &amp; AI COE</div></div></a>
+      <a class="logo" href="#experience"><div class="mono-badge">C</div><div><div class="nm">Capgemini</div><div class="rl">Data integration</div></div></a>
+      <a class="logo" href="#projects"><div class="mono-badge">T</div><div><div class="nm">Travelers</div><div class="rl">Competition winner</div></div></a>
+    </div>
+  </div>
+</div>
+
 <!-- SUMMARY -->
 <section id="summary">
   <div class="wrap summary reveal">
     <div class="sec-head"><span class="sec-idx">01</span><h2>Summary</h2></div>
     <div class="summary-grid">
-      <p class="lead">From message queues to machine learning.</p>
+      <p class="lead">From message queues to AI agents.</p>
       <div>
-        <p>My background is unusual for a data scientist: I spent years keeping enterprise data moving reliably across systems -IBM MQ/IIB message flows, SQL configurations, integration workflows under peak load. That production-systems instinct now shapes how I approach ML: I care as much about shipping a model that runs as about training one that scores well. Today I work across the stack -classical ML, customer analytics, and generative AI with LLMs, RAG, and LangChain -while finishing my MS in Business Analytics with a Data Science concentration at UConn.</p>
+        <p>My background is unusual for a data scientist: I spent years keeping enterprise data moving reliably across systems - IBM MQ/IIB message flows, SQL configurations, integration workflows under peak load. That production-systems instinct now shapes how I build AI: I care as much about shipping something that runs safely in the real world as about a model that scores well. Today I build AI agents, LLM applications with RAG and LangChain, document-intelligence pipelines with vision models, and classical ML - while finishing my MS in Business Analytics with a Data Science concentration at UConn.</p>
         <div class="stat-row">
           <div class="stat"><b>6+</b><span>years in data</span></div>
-          <div class="stat"><b>20%</b><span>incidents resolved above team avg</span></div>
+          <div class="stat"><b>48h→2h</b><span>analysis time with AI agent</span></div>
           <div class="stat"><b>#1</b><span>Travelers 2025 competition</span></div>
         </div>
       </div>
@@ -354,28 +454,122 @@
   </div>
 </section>
 
+<!-- PEPSICO FEATURE -->
+<!-- TODO (Sachin): replace with real PepsiCo scope, data sources, tools and results -->
+<section id="pepsico">
+  <div class="wrap reveal">
+    <div class="sec-head"><span class="sec-idx">02</span><h2>Enterprise Project</h2></div>
+    <div class="feature"><div class="feature-in">
+      <div class="f-head">
+        <div class="f-badge">P</div>
+        <div>
+          <div class="f-kicker">Fortune 500 · Global food &amp; beverage</div>
+          <div class="f-co">PepsiCo</div>
+        </div>
+      </div>
+      <h3 class="f-title">AI-Powered Data Extraction <span class="grad">&amp; Analytics Pipeline</span></h3>
+      <p class="f-sub">Built an AI pipeline for PepsiCo that extracts key information from large volumes of unstructured business data, turns it into clean, structured datasets, and feeds it into analytics and models that help teams make faster decisions at enterprise scale.</p>
+
+      <div class="f-tiles">
+        <div class="f-tile"><b>Enterprise</b><span>scale data across business teams</span></div>
+        <div class="f-tile"><b>AI Extraction</b><span>LLMs pull structured fields from raw data</span></div>
+        <div class="f-tile"><b>End to end</b><span>from raw inputs to insights</span></div>
+        <div class="f-tile"><b>Validated</b><span>quality checks before data is used</span></div>
+      </div>
+
+      <div class="flow" aria-label="PepsiCo pipeline">
+        <div class="step"><div class="n">01 · COLLECT</div><div class="t">Raw data</div><div class="d">Documents, files &amp; business sources</div></div>
+        <div class="step ai"><div class="n">02 · EXTRACT</div><div class="t">AI extraction</div><div class="d">LLMs pull key fields &amp; entities</div></div>
+        <div class="step"><div class="n">03 · STRUCTURE</div><div class="t">Clean &amp; validate</div><div class="d">Standardized, quality-checked tables</div></div>
+        <div class="step ai"><div class="n">04 · MODEL</div><div class="t">Analyze &amp; predict</div><div class="d">ML models &amp; trend analysis</div></div>
+        <div class="step human"><div class="n">05 · DELIVER</div><div class="t">Insights</div><div class="d">Dashboards &amp; recommendations</div></div>
+      </div>
+
+      <div class="case-grid">
+        <div class="case-block">
+          <h4>The challenge</h4>
+          <p>Valuable business information was locked in unstructured, inconsistent data, so pulling it out by hand was slow and hard to scale across a company of PepsiCo's size.</p>
+        </div>
+        <div class="case-block">
+          <h4>What I delivered</h4>
+          <ul>
+            <li><b>AI extraction layer</b> - prompt-engineered LLM workflows that pull structured fields out of unstructured inputs.</li>
+            <li><b>Data pipeline</b> - cleaning, validation and standardization so the output can be trusted downstream.</li>
+            <li><b>Analytics &amp; insights</b> - models and dashboards that turn the extracted data into clear recommendations for stakeholders.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="case-stack stack" style="display:flex;flex-wrap:wrap;gap:7px;margin-top:26px;padding-top:22px;border-top:1px solid var(--line)"><span class="chip">Python</span><span class="chip">LLMs</span><span class="chip">Prompt Engineering</span><span class="chip">Data Extraction</span><span class="chip">SQL</span><span class="chip">Machine Learning</span><span class="chip">Power BI</span></div>
+    </div></div>
+  </div>
+</section>
+
+<!-- CASE STUDY -->
+<section id="case-study">
+  <div class="wrap reveal">
+    <div class="sec-head"><span class="sec-idx">03</span><h2>Featured Case Study</h2></div>
+    <div class="case">
+      <div class="case-tag"><span>AI Document Extraction · Insurance</span><span class="lock">Client confidential</span></div>
+      <h3>AI Document Extraction &amp; Underwriting Support System</h3>
+      <p class="case-sub">An end-to-end AI system for a specialty commercial insurance underwriter that places hard-to-place risks. It turns a messy stream of application forms, scans, and handwritten pages into clean, validated, searchable data - and lets underwriters ask questions of that data in plain English. Everything runs fully on-premise, so no sensitive client data ever leaves the building.</p>
+
+      <div class="flow" aria-label="System pipeline">
+        <div class="step"><div class="n">01 · INGEST</div><div class="t">Documents in</div><div class="d">PDF forms, scans, handwriting</div></div>
+        <div class="step ai"><div class="n">02 · EXTRACT</div><div class="t">Dual pipeline</div><div class="d">Rules parser + local vision model</div></div>
+        <div class="step"><div class="n">03 · PROCESS</div><div class="t">Clean &amp; validate</div><div class="d">Standardize, check, de-duplicate</div></div>
+        <div class="step human"><div class="n">04 · REVIEW</div><div class="t">Human in the loop</div><div class="d">Extract → review → commit</div></div>
+        <div class="step"><div class="n">05 · STORE</div><div class="t">Source of truth</div><div class="d">SQLite with audit trail</div></div>
+        <div class="step ai"><div class="n">06 · ASK</div><div class="t">Ask AI + BI</div><div class="d">NL-to-SQL &amp; Power BI</div></div>
+      </div>
+
+      <div class="case-grid">
+        <div class="case-block">
+          <h4>The problem</h4>
+          <p>Underwriting teams were spending hours re-keying data from inconsistent submissions - some clean digital forms, others scanned or handwritten, many split across multiple pages. Manual entry was slow, error-prone, and created duplicate records, and the data was too sensitive to send to cloud AI services.</p>
+          <h4 style="margin-top:20px">How AI is used</h4>
+          <p>AI handles the parts rules can't: a <b style="color:var(--text)">locally hosted vision model</b> reads scans and handwriting, and an <b style="color:var(--text)">LLM-powered assistant</b> translates underwriters' plain-English questions into safe SQL. Deterministic code handles everything that should be predictable.</p>
+        </div>
+        <div class="case-block">
+          <h4>What I built</h4>
+          <ul>
+            <li><b>AI data extraction</b> - automatically pulls applicant details, coverage info and risk fields out of every submission, from clean PDFs to handwritten scans, so nobody has to re-type them.</li>
+            <li><b>Dual-pipeline intake</b> - a deterministic rules parser for structured PDF forms, and a local vision model for scans and handwriting; multi-page applications are auto-merged into a single record.</li>
+            <li><b>Shared processing layer</b> - clean, validate, de-duplicate, and load everything into one SQLite source of truth.</li>
+            <li><b>Human-in-the-loop review</b> - underwriters approve AI extractions before commit, with fuzzy-match flags for likely duplicates and a full audit trail back to the source document.</li>
+            <li><b>"Ask AI" assistant</b> - natural-language-to-SQL with read-only, guardrailed access so questions never modify data.</li>
+            <li><b>Privacy by design</b> - 100% on-premise, no third-party APIs; Streamlit front end and Power BI dashboards on top.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="stack"><span>Python</span><span>Vision LLM (local)</span><span>NL-to-SQL</span><span>LLM Guardrails</span><span>Human-in-the-Loop</span><span>Streamlit</span><span>SQLite</span><span>Fuzzy Matching</span><span>Power BI</span><span>On-Prem AI</span></div>
+    </div>
+  </div>
+</section>
+
 <!-- EXPERIENCE -->
 <section id="experience">
   <div class="wrap reveal">
-    <div class="sec-head"><span class="sec-idx">02</span><h2>Experience</h2></div>
+    <div class="sec-head"><span class="sec-idx">04</span><h2>Experience</h2></div>
     <div class="xp">
 
       <div class="xp-item">
         <div class="xp-top">
           <div><span class="xp-role">Data &amp; AI COE Intern</span> · <span class="xp-co">Generative Products Inc.</span></div>
-          <span class="xp-date">Jun 2026 -Present · Marysville, WA</span>
+          <span class="xp-date">Jun 2026 - Aug 2026 · Marysville, WA</span>
         </div>
         <ul>
-          <li>Support <b>generative AI</b> projects using LLMs, LangChain, prompt engineering, and RAG for business-automation use cases.</li>
-          <li>Drive <b>customer-analytics</b> initiatives -exploring trends and preparing insights that feed AI-driven decisions.</li>
-          <li>Improve AI-assistant workflows through orchestration support, model-output testing, and enhancement recommendations.</li>
+          <li>Built an <b>AI agent that automates predictive modeling</b> end to end - EDA, model building, and selecting the best model - cutting data analysis time from <b>48 hours to 2 hours</b>.</li>
+          <li>Built a <b>lead-profile scoring model</b> that rates how well each prospect fits for outreach (as a % match), feeding an <b>outreach agent</b> and a <b>reply agent</b> that responds automatically when customers write back.</li>
+          <li>Supported generative AI projects using LLMs, LangChain, prompt engineering, and RAG for business-automation use cases, including model-output testing and workflow improvements.</li>
         </ul>
       </div>
 
       <div class="xp-item">
         <div class="xp-top">
           <div><span class="xp-role">Associate Consultant</span> · <span class="xp-co">Capgemini</span></div>
-          <span class="xp-date">Oct 2024 -Mar 2025 · Noida, India</span>
+          <span class="xp-date">Oct 2024 - Mar 2025 · Noida, India</span>
         </div>
         <ul>
           <li>Partnered with cross-functional stakeholders to gather requirements and deliver <b>data-driven solutions</b> for enterprise initiatives.</li>
@@ -386,11 +580,11 @@
 
       <div class="xp-item integration">
         <div class="xp-top">
-          <div><span class="xp-role">Senior Software Engineer -Analytics &amp; Data Integration</span> · <span class="xp-co">Capgemini</span></div>
-          <span class="xp-date">Mar 2022 -Sep 2024 · Noida, India</span>
+          <div><span class="xp-role">Senior Software Engineer - Analytics &amp; Data Integration</span> · <span class="xp-co">Capgemini</span></div>
+          <span class="xp-date">Mar 2022 - Sep 2024 · Noida, India</span>
         </div>
         <ul>
-          <li>Optimized <b>IBM IIB / MQ integration</b> with ESQL and Linux scripting, adding flows for peak load -earned the Bronze Badge of Honor.</li>
+          <li>Optimized <b>IBM IIB / MQ integration</b> with ESQL and Linux scripting, adding flows for peak load - earned the Bronze Badge of Honor.</li>
           <li>Resolved <b>20% more incidents</b> than team average via root-cause analysis, SQL fixes, and system-health monitoring dashboards.</li>
           <li>Built Power Automate flows for notifications and follow-up tracking, cutting manual coordination.</li>
         </ul>
@@ -399,11 +593,11 @@
       <div class="xp-item">
         <div class="xp-top">
           <div><span class="xp-role">Data Analyst</span> · <span class="xp-co">Rohtash Chahal &amp; Associates</span></div>
-          <span class="xp-date">Jun 2020 -Feb 2022</span>
+          <span class="xp-date">Jun 2020 - Feb 2022</span>
         </div>
         <ul>
           <li>Standardized a data collection-to-analysis process delivering <b>quarterly dashboards</b> on spend, segmentation, and campaign performance.</li>
-          <li>Owned regular reporting on business, marketing, and sales performance -helping <b>grow revenue 20%</b>.</li>
+          <li>Owned regular reporting on business, marketing, and sales performance - helping <b>grow revenue 20%</b>.</li>
         </ul>
       </div>
 
@@ -414,15 +608,31 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="wrap reveal">
-    <div class="sec-head"><span class="sec-idx">03</span><h2>Projects</h2></div>
+    <div class="sec-head"><span class="sec-idx">05</span><h2>Projects</h2></div>
     <div class="proj-grid">
 
       <div class="card win">
         <span class="tag">★ Winner · Travelers 2025</span>
         <h3>Subrogation Claim Prediction</h3>
         <div class="sub">TriGuard Insurance · Python · Ensemble ML</div>
-        <p>Built an ensemble model to surface high-potential subrogation claims -the winning solution in the Travelers University Modeling Competition 2025. Full pipeline: EDA, preprocessing, feature engineering, and classification tuned to maximize recovery on high-value claims.</p>
+        <p>Built an ensemble model to surface high-potential subrogation claims - the winning solution in the Travelers University Modeling Competition 2025. Full pipeline: EDA, preprocessing, feature engineering, and classification tuned to maximize recovery on high-value claims.</p>
         <div class="stack"><span>Python</span><span>Ensemble</span><span>Feature Eng.</span><span>Classification</span><span>EDA</span></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">AI Agents · Generative Products</span>
+        <h3>Automated Predictive Modeling Agent</h3>
+        <div class="sub">AI Agent · AutoML · Python</div>
+        <p>An AI agent that takes a dataset and runs the whole modeling workflow on its own - exploratory analysis, training multiple models, comparing them, and choosing the best one to make predictions. Reduced analysis turnaround from 48 hours to 2 hours.</p>
+        <div class="stack"><span>AI Agents</span><span>LLMs</span><span>AutoML</span><span>PyCaret</span><span>Scikit-Learn</span></div>
+      </div>
+
+      <div class="card">
+        <span class="tag">AI Agents · Generative Products</span>
+        <h3>Lead Scoring + Outreach &amp; Reply Agents</h3>
+        <div class="sub">Multi-agent workflow · LLMs · Customer Analytics</div>
+        <p>A lead-profile model scores how well each prospect fits (% match), then an outreach agent drafts personalized messages and a reply agent responds when customers write back - turning prospecting into an automated, AI-driven pipeline.</p>
+        <div class="stack"><span>Multi-Agent</span><span>LangChain</span><span>Prompt Engineering</span><span>Lead Scoring</span><span>Python</span></div>
       </div>
 
       <div class="card">
@@ -440,23 +650,23 @@
 <!-- SKILLS -->
 <section id="skills">
   <div class="wrap reveal">
-    <div class="sec-head"><span class="sec-idx">04</span><h2>Stack</h2></div>
+    <div class="sec-head"><span class="sec-idx">06</span><h2>Stack</h2></div>
     <div class="skill-grid">
-      <div class="skill-block">
-        <h4>AI &amp; Automation</h4>
-        <div class="pills"><span>Generative AI</span><span>LLMs</span><span>Prompt Engineering</span><span>RAG</span><span>LangChain</span><span>LangGraph</span><span>Power Automate</span><span>Workflow Automation</span></div>
+      <div class="skill-block ai">
+        <h4>Generative AI &amp; Agents</h4>
+        <div class="pills"><span>LLMs</span><span>AI Agents</span><span>Multi-Agent Workflows</span><span>RAG</span><span>LangChain</span><span>LangGraph</span><span>Prompt Engineering</span><span>Vision LLMs</span><span>NL-to-SQL</span><span>LLM Guardrails</span><span>Human-in-the-Loop</span><span>On-Prem / Local LLMs</span></div>
       </div>
       <div class="skill-block">
         <h4>Data &amp; ML Tools</h4>
-        <div class="pills"><span>Python</span><span>SQL</span><span>R</span><span>Pandas</span><span>NumPy</span><span>Scikit-Learn</span><span>PyCaret</span><span>Matplotlib</span><span>Seaborn</span></div>
+        <div class="pills"><span>Python</span><span>SQL</span><span>R</span><span>Pandas</span><span>NumPy</span><span>Scikit-Learn</span><span>PyCaret</span><span>Ensemble Models</span><span>Streamlit</span><span>Matplotlib</span><span>Seaborn</span></div>
       </div>
       <div class="skill-block">
         <h4>Business &amp; Analytics</h4>
         <div class="pills"><span>Business Analysis</span><span>Stakeholder Mgmt</span><span>KPI Reporting</span><span>Dashboarding</span><span>Storytelling</span><span>Customer Analytics</span><span>Power BI</span><span>Tableau</span><span>Excel</span></div>
       </div>
       <div class="skill-block">
-        <h4>Databases &amp; Cloud</h4>
-        <div class="pills"><span>SQL Server</span><span>MySQL</span><span>Postgres</span><span>DBeaver</span><span>Azure</span><span>AWS</span></div>
+        <h4>Data Platforms &amp; Automation</h4>
+        <div class="pills"><span>SQL Server</span><span>MySQL</span><span>Postgres</span><span>SQLite</span><span>DBeaver</span><span>Azure</span><span>AWS</span><span>IBM MQ / IIB</span><span>Power Automate</span><span>Copilot Studio</span></div>
       </div>
     </div>
   </div>
@@ -468,8 +678,8 @@
     <div class="award">
       <div>
         <span class="trophy">◆ Achievement</span>
-        <h3>Winner -Travelers University Modeling Competition 2025</h3>
-        <p>Developed the ensemble machine-learning model behind the winning solution among competing university teams -identifying high-potential subrogation claims for real-world recovery impact.</p>
+        <h3>Winner - Travelers University Modeling Competition 2025</h3>
+        <p>Developed the ensemble machine-learning model behind the winning solution among competing university teams - identifying high-potential subrogation claims for real-world recovery impact.</p>
       </div>
     </div>
   </div>
@@ -478,11 +688,11 @@
 <!-- EDUCATION -->
 <section id="education">
   <div class="wrap reveal">
-    <div class="sec-head"><span class="sec-idx">05</span><h2>Education</h2></div>
+    <div class="sec-head"><span class="sec-idx">07</span><h2>Education</h2></div>
     <div class="edu">
       <div>
         <h3>M.S. Business Analytics &amp; Project Management</h3>
-        <div class="school">University of Connecticut · School of Business -Hartford, CT</div>
+        <div class="school">University of Connecticut · School of Business - Hartford, CT</div>
         <div class="conc">Concentration: Data Science</div>
       </div>
       <div class="date">Jan 2025 — Dec 2026</div>
@@ -495,13 +705,13 @@
   <div class="wrap reveal">
     <p class="eyebrow">Available for ML / AI Engineering · Data Science roles</p>
     <h2 class="foot-head">Let's build something <span class="grad">that ships.</span></h2>
-    <p class="foot-sub">Open to internships and full-time roles in Machine Learning, AI Engineering, Data Science, and Data Analytics.</p>
+    <p class="foot-sub">Open to internships and full-time roles in Machine Learning, AI Engineering, Data Science, and Data Analytics. Based in Hartford, CT and open to relocate anywhere in the US.</p>
     <div class="contact-row">
       <a href="tel:+17744330370"><span class="k">tel</span> +1 (774) 433-0370</a>
-      <a href="mailto:sachinchahal10@gmail.com"><span class="k">email</span> add your email</a>
-      <a href="#" data-edit="www.linkedin.com/in/sachinchahal"><span class="k">In</span> LinkedIn</a>
-      <a href="#" data-edit="https://github.com/sachinchahal10/sachinchahal10"><span class="k">gh</span> GitHub</a>
-      <a href="#" data-edit="https://www.credly.com/users/sachin-chahal"><span class="k">cert</span> Credly</a>
+      <a href="mailto:sachinchahal10@gmail.com"><span class="k">email</span> sachinchahal10@gmail.com</a>
+      <a href="https://www.linkedin.com/in/sachinchahal" target="_blank" rel="noopener"><span class="k">In</span> LinkedIn</a>
+      <a href="https://github.com/sachinchahal10/sachinchahal10" target="_blank" rel="noopener"><span class="k">gh</span> GitHub</a>
+      <a href="https://www.credly.com/users/sachin-chahal" target="_blank" rel="noopener"><span class="k">cert</span> Credly</a>
     </div>
     <div class="foot-bottom">
       <span>© 2026 Sachin Chahal · Hartford, CT</span>
@@ -511,7 +721,6 @@
 </footer>
 
 <script>
-  // scroll reveal
   const io=new IntersectionObserver((es)=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>
